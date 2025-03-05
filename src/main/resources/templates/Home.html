@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base ::parent(~{::#Home},~{::title},~{::script})}">
+<head>
+    <title>Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@1.5.1/dist/flowbite.js"></script>
+</head>
+<body>
+    <div id="Home">
+        <style>
+            .hero {
+                background: linear-gradient(to right, #007bff, #6610f2);
+                color: white;
+                padding: 80px 0;
+                text-align: center;
+            }
+            .dark-mode .hero {
+            background: linear-gradient(to right, #222222, #444444);
+        }
+            .feature-card {
+                transition: transform 0.3s;
+            }
+            .feature-card:hover {
+                transform: scale(1.05);
+            }
+            .btn1 {
+            background-color: #ffcc00;
+            color: #6610f2;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+           
+        }
+        .btn1:hover {
+            background-color: #ff9900;
+            color: white;
+        }
+        .foot{
+            margin-top: 30px;
+        }
+
+    
+
+    
+   
+    
+
+   
+        </style>
+
+        <!-- Hero Section -->
+        <section class="hero py-20 text-center bg-gradient-to-r from-blue-500 to-blue-700">
+            <h1 class="text-4xl font-bold text-white">Smart Contact Manager</h1>
+            <p class="mt-3 text-gray-200">Manage your contacts securely and efficiently.</p>
+            <a href="/register" class="inline-block mt-5 px-6 py-3 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-500 transition shadow-lg">
+                Get Started
+            </a>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="py-12 bg-white dark:bg-gray-900">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+                <div class="p-6 border rounded-lg shadow-sm text-center dark:border-gray-700">
+                    <span class="text-2xl">🔒</span>
+                    <h3 class="text-xl font-semibold mt-3 dark:text-white">Secure Storage</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Your contacts are encrypted and stored safely.</p>
+                </div>
+                <div class="p-6 border rounded-lg shadow-sm text-center dark:border-gray-700">
+                    <span class="text-2xl">📞</span>
+                    <h3 class="text-xl font-semibold mt-3 dark:text-white">Easy Access</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Find and manage your contacts quickly.</p>
+                </div>
+                <div class="p-6 border rounded-lg shadow-sm text-center dark:border-gray-700">
+                    <span class="text-2xl">⭐</span>
+                    <h3 class="text-xl font-semibold mt-3 dark:text-white">Favorite Contacts</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Mark important contacts for quick access.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="bg-gray-50 dark:bg-gray-800 py-16">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-3xl font-bold dark:text-white">What Our Users Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                    <div class="p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md">
+                        <p class="italic dark:text-gray-300">"A must-have for professionals and businesses."</p>
+                        <span class="block mt-3 text-gray-700 dark:text-gray-400">— Mark Wilson</span>
+                    </div>
+                    <div class="p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md">
+                        <p class="italic dark:text-gray-300">"Secure, fast, and easy to use. Highly recommended!"</p>
+                        <span class="block mt-3 text-gray-700 dark:text-gray-400">— Jane Smith</span>
+                    </div>
+                    <div class="p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md">
+                        <p class="italic dark:text-gray-300">"This app has changed how I manage my contacts!"</p>
+                        <span class="block mt-3 text-gray-700 dark:text-gray-400">— John Doe</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+         
+        <footer class="foot bg-gray-900 text-white text-center py-6">
+            <p>&copy; 2025 Smart Contact Manager. All Rights Reserved.</p>
+            <div class="flex justify-center space-x-4 mt-3">
+                <a href="#" class="hover:text-gray-400">Facebook</a>
+                <a href="#" class="hover:text-gray-400">Twitter</a>
+                <a href="#" class="hover:text-gray-400">LinkedIn</a>
+            
+        </footer>
+    </div>
+
+    <!-- Dark Mode Toggle Script -->
+    
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base ::parent(~{::#register},~{::title},~{::script})}">
+<head>
+    <title>Signup</title>
+</head>
+<body>
+    <div id="register">
+        <div class="grid grid-cols-12 mt-5">
+            <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4"></div>
+            <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
+                <div class="block p-6 border-t-[10px] border-blue-700 bg-white rounded-xl shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-blue-700 dark:hover:bg-gray-700">
+                    <!-- Message here -->
+                    <div data-th-replace="~{MsgTemplate::messagebox}"></div>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">SignUp Here</h5>
+                    <p class="font-normal text-gray-400 dark:text-gray-400">Start managing contacts on Cloud...</p>
+
+                    <!-- Updated form with Thymeleaf bindings -->
+                    <form th:action="@{/do-register}" method="post" th:object="${user}" class="mt-5" novalidate>
+                        <!-- Name field -->
+                        <div class="mb-3">
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                            <input type="text" id="name" th:field="*{name}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter name" required />
+                            <div class="text-red-600 mt-1">
+                                <div th:if="${#fields.hasErrors('name')}" th:each="error : ${#fields.errors('name')}" th:text="${error}"></div>
+                            </div>
+                        </div>
+
+                        <!-- Email field -->
+                        <div class="mb-3">
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input type="email" id="email" th:field="*{email}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Your Email" required />
+                            <div class="text-red-600 mt-1">
+                                <div th:if="${#fields.hasErrors('email')}" th:each="error : ${#fields.errors('email')}" th:text="${error}"></div>
+                            </div>
+                        </div>
+
+                        <!-- Password field -->
+                        <div class="mb-3">
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                            <input type="password" id="password" th:field="*{password}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Your Password" required />
+                            <div class="text-red-600 mt-1">
+                                <div th:if="${#fields.hasErrors('password')}" th:each="error : ${#fields.errors('password')}" th:text="${error}"></div>
+                            </div>
+                        </div>
+
+                        <!-- Phone Number field -->
+                        <div class="mb-3">
+                            <label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Number</label>
+                            <input type="text" id="phoneNumber" th:field="*{phoneNumber}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Your Phone Number" required />
+                            <div class="text-red-600 mt-1">
+                                <div th:if="${#fields.hasErrors('phoneNumber')}" th:each="error : ${#fields.errors('phoneNumber')}" th:text="${error}"></div>
+                            </div>
+                        </div>
+
+                        <!-- About text area -->
+                        <div class="mb-3">
+                            <label for="about" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Write something about yourself</label>
+                            <textarea id="about" th:field="*{about}" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write here..."></textarea>
+                            <div class="text-red-600 mt-1">
+                              <div th:if="${#fields.hasErrors('about')}" th:each="error : ${#fields.errors('about')}" th:text="${error}"></div>
+                          </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="mb-3 flex justify-center space-x-3">
+                            <button type="submit" class="px-3 py-2 rounded bg-gray-800 text-white dark:bg-blue-500 dark:hover:bg-blue-800 hover:bg-gray-900">Signup</button>
+                            <button type="reset" class="px-3 py-2 rounded bg-orange-800 text-white dark:bg-orange-500 dark:hover:bg-orange-800 hover:bg-orange-900">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log("register");
+    </script>
+</body>
+</html>

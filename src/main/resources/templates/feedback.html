@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <style>
+       
+    </style>
+</head>
+<body class="bg-gray-100  dark:bg-gray-900 dark:text-white">
+    <div id="content" class="flex justify-center items-center w-full">
+        <div th:if="${loggedInUser}">
+            <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+          </div>
+    
+          <div class="max-w-lg w-full bg-white p-8 rounded-2xl shadow-lg transform transition duration-300 hover:scale-105  dark:bg-gray-800
+          " style="margin-top: 5%;">
+        <h2 class="text-2xl font-semibold text-gray-800 text-center  dark:text-white">We Value Your Feedback</h2>
+
+        <!-- Success Alert -->
+        <div th:if="${success}" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mt-4">
+            <strong class="font-bold">Thank you!</strong>
+            <span class="block sm:inline">Your feedback has been submitted.</span>
+        </div>
+
+        <form th:action="@{/submit-feedback}" method="post" class="mt-6 space-y-4">
+            <!-- Name Field -->
+            <div>
+                <label for="name" class="block text-gray-700 font-medium  dark:text-white">Name</label>
+                <input type="text" id="name" name="name" class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-300  dark:bg-gray-700  dark:text-white" required>
+            </div>
+
+            <!-- Email Field -->
+            <div>
+                <label for="email" class="block text-gray-700 font-medium  dark:text-white">Email</label>
+                <input type="email" id="email" name="email" class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-300  dark:bg-gray-700  dark:text-white" required>
+            </div>
+
+            <!-- Feedback Textarea -->
+            <div>
+                <label for="message" class="block text-gray-700 font-medium  dark:text-white">Your Feedback</label>
+                <textarea id="message" name="message" rows="4" class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-300  dark:bg-gray-700  dark:text-white"  required></textarea>
+            </div>
+
+            <!-- Rating -->
+            <div>
+                <label class="block text-gray-700 font-medium  dark:text-white">Rate Us</label>
+                <div class="flex space-x-2 mt-1">
+                    <input type="radio" id="rating1" name="rating" value="1" class="hidden">
+                    <label for="rating1" class="cursor-pointer text-yellow-500 text-2xl">★</label>
+
+                    <input type="radio" id="rating2" name="rating" value="2" class="hidden">
+                    <label for="rating2" class="cursor-pointer text-yellow-500 text-2xl">★★</label>
+
+                    <input type="radio" id="rating3" name="rating" value="3" class="hidden">
+                    <label for="rating3" class="cursor-pointer text-yellow-500 text-2xl">★★★</label>
+
+                    <input type="radio" id="rating4" name="rating" value="4" class="hidden">
+                    <label for="rating4" class="cursor-pointer text-yellow-500 text-2xl">★★★★</label>
+
+                    <input type="radio" id="rating5" name="rating" value="5" class="hidden" checked>
+                    <label for="rating5" class="cursor-pointer text-yellow-500 text-2xl">★★★★★</label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+                Submit Feedback
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

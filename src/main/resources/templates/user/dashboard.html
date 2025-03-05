@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
+  <head>
+    <title data-th-text="${loggedInUser.name}+' |  Dashboard'">
+      Profile Page
+    </title>
+  </head>
+  <body>
+    <div id="content">
+      <!-- sidebar -->
+
+      <!-- user is logged in : sidebar -->
+
+      <div th:if="${loggedInUser}">
+        <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+      </div>
+
+      <div class="sm:pl-64 pt-20" style="height: 1000px">
+        <div class="flex justify-center flex-col items-center">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <!-- Total Contacts -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+              <h3 class="text-xl font-semibold text-gray-800">Total Contacts</h3>
+              <p class="text-4xl font-bold text-blue-600" th:text="${totalContacts}">0</p>
+            </div>
+  
+            <!-- Favorite Contacts -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+              <h3 class="text-xl font-semibold text-gray-800">Favorite Contacts</h3>
+              <p class="text-4xl font-bold text-green-600" th:text="${totalFavContacts}">0</p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      console.log("this is profile page");
+    </script>
+  </body>
+</html>
